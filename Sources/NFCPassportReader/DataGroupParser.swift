@@ -273,6 +273,14 @@ class DataGroup2 : DataGroup {
         let image = UIImage(data:Data(imageData) )
         return image
     }
+
+    func getImageData() -> Data? {
+        if imageData.count == 0 {
+            return nil
+        }
+
+        return Data(imageData)
+    }
     
     required init( _ data : [UInt8] ) throws {
         try super.init(data)
@@ -406,6 +414,14 @@ class DataGroup7 : DataGroup {
         
         let image = UIImage(data:Data(imageData) )
         return image
+    }
+
+    func getSignatureImageData() -> Data? {
+        if imageData.count == 0 {
+            return nil
+        }
+
+        return Data(imageData)
     }
 
     

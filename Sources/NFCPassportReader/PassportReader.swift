@@ -22,16 +22,16 @@ public struct NFCPassportModel {
         
         return dg1.elements
     }
-    public var passportImage : UIImage? {
+    public var passportImage : Data? {
         guard let dg2 = dataGroupsRead[.DG2] as? DataGroup2 else { return nil }
         
-        return dg2.getImage()
+        return dg2.getImageData()
         
     }
-    public var signatureImage : UIImage? {
+    public var signatureImage : Data? {
         guard let dg7 = dataGroupsRead[.DG7] as? DataGroup7 else { return nil }
         
-        return dg7.getImage()
+        return dg7.getSignatureImageData()
     }
     
     public var dataGroupsRead : [DataGroupId:DataGroup] = [:]
