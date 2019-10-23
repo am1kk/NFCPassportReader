@@ -33,6 +33,16 @@ public struct NFCPassportModel {
         
         return dg7.getSignatureImageData()
     }
+    public var eyeColor: String {
+        guard let dg2 = dataGroupsRead[.DG2] as? DataGroup2 else { return "UNSPECIFIED" }
+
+        return String(dg2.eyeColor)
+    }
+    public var hairColor: String {
+        guard let dg2 = dataGroupsRead[.DG2] as? DataGroup2 else { return "UNSPECIFIED" }
+
+        return String(dg2.hairColor)
+    }
     
     public var dataGroupsRead : [DataGroupId:DataGroup] = [:]
     
