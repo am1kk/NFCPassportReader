@@ -22,8 +22,5 @@ let package = Package(
         .target(
             name: "NFCPassportReader",
             dependencies: []),
-        .testTarget(
-            name: "NFCPassportReaderTests",
-            dependencies: ["NFCPassportReader"]),
     ]
 )
