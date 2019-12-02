@@ -9,6 +9,7 @@
 import Foundation
 import CoreNFC
 
+@available(iOS 13, *)
 public class BACHandler {
     let KENC : [UInt8] = [0,0,0,1]
     let KMAC : [UInt8] = [0,0,0,2]
@@ -37,6 +38,9 @@ public class BACHandler {
         }
         
         _ = self.deriveDocumentBasicAccessKeys(mrz: mrzKey)
+        
+        // Make sure we clear secure messaging (could happen if we read an invalid DG or we hit a secure error
+        tagReader.secureMessaging = nil
         
         // get Challenge
         tagReader.getChallenge() { [unowned self] (response, error) in
